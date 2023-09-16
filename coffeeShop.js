@@ -17,11 +17,11 @@ class CoffeeShop {
     addOrder(item) {
         for(let i =0; i < this.menu.length; i++){
             if(this.menu[i].name === item){
-                this.orders.push(item)
-                return this.orders
+                this.orders.push(item);
+                return this.orders;
             }
          }
-        return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item}`
+        return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item}`;
 }
 
     fulfillOrder(){
