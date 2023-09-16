@@ -29,7 +29,7 @@ class CoffeeShop {
             let item = this.orders.shift();
             return `The ${item} is ready!`;
         }
-        console.log(`All orders have been fulfilled!`)
+        return `All orders have been fulfilled!`;
     }
 
     dueAmount(){
@@ -92,8 +92,8 @@ menu = [
     },
   ];
   
-  const Jazzve = new CoffeeShop('Jazzve', menu)
-  console.log(  Jazzve.addOrder("coffee"))
+const Jazzve = new CoffeeShop('Jazzve', menu)
+console.log(  Jazzve.addOrder("coffee"))
 console.log(Jazzve.dueAmount())
 console.log(Jazzve.drinksOnly());
 console.log(Jazzve.foodOnly());
