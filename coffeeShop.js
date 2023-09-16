@@ -32,7 +32,16 @@ class CoffeeShop {
         console.log(`All orders have been fulfilled!`)
     }
     dueAmount(){
-        return this.orders.reduce((sum, price) => sum + this.price,0)
+        let sum = 0;
+        orders.forEach(element => {
+            for (let i = 0; i < this.menu.length; i++) {
+                if (element === this.menu[i].name) {
+                    sum += this.menu[i].price;
+                    break;
+                }
+            }
+        });
+        return sum;
     }
 
     cheapestItem(){
