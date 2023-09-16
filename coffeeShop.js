@@ -1,3 +1,4 @@
+'use strict'
 
 class CoffeeShop {
     
@@ -23,14 +24,12 @@ class CoffeeShop {
         return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item}`
 }
 
-    fulfillOrder(item){/* imtemi pahy verjum kstugeq */
-        if (this.orders !== 0){
-            console.log(`The ${item.name} is ready!`)
-        }else {
-            console.log(`All orders have been fulfilled!`)
+    fulfillOrder(){
+        if (this.orders.length !== 0){
+            let item = this.orders.shift();
+            return `The ${item} is ready!`;
         }
-
-        return this.orders
+        console.log(`All orders have been fulfilled!`)
     }
     dueAmount(){
         return this.orders.reduce((sum, price) => sum + this.price,0)
