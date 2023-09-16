@@ -5,7 +5,7 @@ class CoffeeShop {
     constructor(name, menu) {
         this.name = name;
         this.orders = [];
-        this.menu = manu;
+        this.menu = menu;
     }
 
     
@@ -17,7 +17,7 @@ class CoffeeShop {
         }
     }
 
-    fulfillOrder(item){
+    fulfillOrder(item){/* imtemi pahy verjum kstugeq */
         if (this.orders !== 0){
             console.log(`The ${item.name} is ready!`)
         }else {
@@ -26,7 +26,9 @@ class CoffeeShop {
 
         return this.orders
     }
-
+    dueAmount(){
+        return this.orders.reduce((sum, price) => sum + this.price,0)
+    }
 
 
 }
@@ -54,4 +56,4 @@ const menu = [
   ];
 
 const Jazzve = new CoffeeShop('Jazzve', menu)
-
+console.log(Jazzve.dueAmount())
