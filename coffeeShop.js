@@ -40,6 +40,23 @@ class CoffeeShop {
        return  this.menu.reduce((acc,curr)=> acc < curr.price ? acc  : curr.price);
     }
 
+    drinksOnly(){
+     return  this.menu.reduce((acc,item)=>{
+        if(item.type === "drink"){
+            acc.push(item.name);
+        }
+        return acc;
+    },[] )
+}
+
+    foodOnly(){
+        return  this.menu.reduce((acc,item)=>{
+            if(item.type === "food"){
+                acc.push(item.name);
+            }
+            return acc;
+        },[] )
+    }
 
 }
 
@@ -69,3 +86,5 @@ menu = [
   const Jazzve = new CoffeeShop('Jazzve', menu)
   console.log(  Jazzve.addOrder("coffee"))
 console.log(Jazzve.dueAmount())
+console.log(Jazzve.drinksOnly());
+console.log(Jazzve.foodOnly());
