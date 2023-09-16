@@ -31,6 +31,7 @@ class CoffeeShop {
         }
         console.log(`All orders have been fulfilled!`)
     }
+
     dueAmount(){
         let sum = 0;
         orders.forEach(element => {
@@ -49,13 +50,13 @@ class CoffeeShop {
     }
 
     drinksOnly(){
-     return  this.menu.reduce((acc,item)=>{
-        if(item.type === "drink"){
-            acc.push(item.name);
-        }
+        return  this.menu.reduce((acc,item)=>{
+            if(item.type === "drink"){
+                acc.push(item.name);
+            }
         return acc;
-    },[] )
-}
+        },[] )
+    }
 
     foodOnly(){
         return  this.menu.reduce((acc,item)=>{
