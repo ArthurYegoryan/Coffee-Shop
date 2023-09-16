@@ -1,19 +1,10 @@
-'use strict'
-
 class CoffeeShop {
-    
-
-    _item = ""
-   
-
     constructor(name, menu) {
         this.name = name;
-        this.orders = [];
         this.menu = menu;
     }
+    orders = [];
 
-    
-    
     addOrder(item) {
         for(let i =0; i < this.menu.length; i++){
             if(this.menu[i].name === item){
@@ -21,8 +12,9 @@ class CoffeeShop {
                 return this.orders;
             }
          }
+
         return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item}`;
-}
+    }
 
     fulfillOrder(){
         if (this.orders.length !== 0){
@@ -33,16 +25,14 @@ class CoffeeShop {
     }
 
     dueAmount(){
-        let sum = 0;
-        orders.forEach(element => {
-            for (let i = 0; i < this.menu.length; i++) {
-                if (element === this.menu[i].name) {
-                    sum += this.menu[i].price;
-                    break;
+        this.menu.reduce((acc, item) => {
+            this.orders.forEach(orderItem => {
+                if(item.name === orderItem) {
+                    acc += item.price
                 }
-            }
-        });
-        return sum;
+            })
+            return acc;
+        },0)
     }
 
     cheapestItem(){
@@ -69,7 +59,7 @@ class CoffeeShop {
 
 }
 
-menu = [
+const menu = [
     {
       name: 'coca_cola',
       type: 'drink',
@@ -90,10 +80,10 @@ menu = [
       type: 'drink',
       price: 25,
     },
-  ];
+];
   
 const Jazzve = new CoffeeShop('Jazzve', menu)
-console.log(  Jazzve.addOrder("coffee"))
+console.log(Jazzve.addOrder("coffee"))
 console.log(Jazzve.dueAmount())
 console.log(Jazzve.drinksOnly());
 console.log(Jazzve.foodOnly());
