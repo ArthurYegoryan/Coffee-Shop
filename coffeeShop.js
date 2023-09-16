@@ -1,4 +1,7 @@
 class CoffeeShop {
+
+    _item = ""
+
     constructor(name, menu) {
         this.name = name;
         this.orders = [];
@@ -13,6 +16,18 @@ class CoffeeShop {
             return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item.name}`
         }
     }
+
+    fulfillOrder(item){
+        if (this.orders !== 0){
+            console.log(`The ${item.name} is ready!`)
+        }else {
+            console.log(`All orders have been fulfilled!`)
+        }
+
+        return this.orders
+    }
+
+
 
 }
 const menu = [
@@ -39,3 +54,4 @@ const menu = [
   ];
 
 const Jazzve = new CoffeeShop('Jazzve', menu)
+
