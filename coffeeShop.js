@@ -1,6 +1,9 @@
+
 class CoffeeShop {
+    
 
     _item = ""
+   
 
     constructor(name, menu) {
         this.name = name;
@@ -9,13 +12,16 @@ class CoffeeShop {
     }
 
     
+    
     addOrder(item) {
-        if(this.menu[item.name]) {
-            this.orders.push(item.name)
-        } else {
-            return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item.name}`
-        }
-    }
+        for(let i =0; i < this.menu.length; i++){
+            if(this.menu[i].name === item){
+                this.orders.push(item)
+                return this.orders
+            }
+         }
+        return `This item is currently unavailable! ${this.name}s coffee shop does not sell ${item}`
+}
 
     fulfillOrder(item){/* imtemi pahy verjum kstugeq */
         if (this.orders !== 0){
@@ -30,9 +36,14 @@ class CoffeeShop {
         return this.orders.reduce((sum, price) => sum + this.price,0)
     }
 
+    cheapestItem(){
+       return  this.menu.reduce((acc,curr)=> acc < curr.price ? acc  : curr.price);
+    }
+
 
 }
-const menu = [
+
+menu = [
     {
       name: 'coca_cola',
       type: 'drink',
@@ -54,6 +65,7 @@ const menu = [
       price: 25,
     },
   ];
-
-const Jazzve = new CoffeeShop('Jazzve', menu)
+  
+  const Jazzve = new CoffeeShop('Jazzve', menu)
+  console.log(  Jazzve.addOrder("coffee"))
 console.log(Jazzve.dueAmount())
